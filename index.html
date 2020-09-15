@@ -1,0 +1,54 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Page</title>
+</head>
+<body>
+
+<div id="app">
+
+<button v-on:click="mydetails()">Click</button>
+<p v-bind:title="message">{{message}}</p>
+<span v-if="seen == 1">Okay</span>
+<span v-else>Sorry</span>
+<ol>
+    <li v-for="main in array">
+      {{ main.name }}
+    </li>
+  </ol>
+  <input type="text" v-model='input'>{{input}}
+  <p v-html="template"></p>
+  <value></value>
+  
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+var app = new Vue({
+  el: '#app',
+  components:{
+      'value': {
+         template : '<div><h1>This is coming from component</h1></div>'
+      }
+	  },
+  data: {
+    message: 'Hello Vue!',
+	template: "<i>Sohan</i>",
+	seen: 1,
+	input:'',
+	 array: [
+      { name: 'Mohammad Sohan' },
+      { name: 'Md Zahidul Islam Sohan' }
+    ]
+  },   
+  methods: {
+      mydetails : function() {
+         this.message = "I'm a robot Python using Vue.js";
+      }
+   }
+})
+</script>
+
+</body>
+</html> 
